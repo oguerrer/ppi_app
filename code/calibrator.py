@@ -189,6 +189,9 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
             a work load of multiple Monte Carlo simulations of PPI. Parallel
             processing is optional. If not provided, the Monte Carlo simulations
             are run in a serial fashion.
+        verbose: boolean
+            Whether to print the calibration progress. If not provided, the
+            default value is False.
         
     Returns
     -------
