@@ -287,7 +287,7 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
             
         # prints the calibration iteration and the worst goodness-of-fit metric
         if verbose:
-            print( counter, np.min(GoF_alpha.tolist()+GoF_beta.tolist()) )
+            print( 'Iteration:', counter, '.    Worst goodness of fit:', np.min(GoF_alpha.tolist()+GoF_beta.tolist()) )
     
     # save the last parameter vector and de associated errors and goodness-of-fit metrics
     output = np.array([['alpha', 'alpha_prime', 'beta', 'T', 'error_alpha', 
