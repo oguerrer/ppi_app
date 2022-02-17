@@ -253,13 +253,13 @@ def run_ppi(I0, alphas, alphas_prime, betas, A=None, R=None, bs=None, qm=None, r
     if Imax is not None:
         assert len(Imax) == N, 'Imax should have the same size as I0'
         if np.sum(~np.isnan(Imax)) > 0:
-            assert np.sum(Imax[~np.isnan(Imax)] < I0[~np.isnan(Imax)]) == 0, 'All entries in Imax should be greater than I0'
+            assert np.sum(Imax[~np.isnan(Imax)] <= I0[~np.isnan(Imax)]) == 0, 'All entries in Imax should be greater than I0'
 
     # Theoretical lower bounds
     if Imin is not None:
         assert len(Imin) == N, 'Imin should have the same size as I0'
         if np.sum(~np.isnan(Imin)) > 0:
-            assert np.sum(Imin[~np.isnan(Imin)] < I0[~np.isnan(Imin)]) == 0, 'All entries in Imin should be lower than I0'
+            assert np.sum(Imin[~np.isnan(Imin)] >= I0[~np.isnan(Imin)]) == 0, 'All entries in Imin should be lower than I0'
 
 
     # Payment schedule
@@ -287,8 +287,10 @@ def run_ppi(I0, alphas, alphas_prime, betas, A=None, R=None, bs=None, qm=None, r
     assert sum([True for i in range(N) if R[i] and i not in B_dict]) == 0, 'Every key in B_dict must be mapped into a non-empty list'
     assert sum([True for i in B_dict.keys() if not R[i]]) == 0, 'The keys in B_dict must match the indices of the entries in R that contain ones'
     
+    
     # Create reverse disctionary linking expenditure programs to indicators
     programs = sorted(np.unique([item for sublist in B_dict.values() for item in sublist]).tolist())
+    assert Bs.shape[0] == len(programs), 'The number of unique expenditure programs in B_dict do not match the number of rows in Bs'
     program2indis = dict([(program, []) for program in programs])
     sorted_programs = sorted(program2indis.keys())
     for indi, programs in B_dict.items():
