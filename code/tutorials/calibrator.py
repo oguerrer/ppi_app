@@ -22,10 +22,10 @@ from joblib import Parallel, delayed
 
 warnings.simplefilter("ignore")
 
-home =  os.getcwd()
+home =  os.getcwd()[:-4]
 
 
-os.chdir(home)
+os.chdir(home+'/code/')
 import ppi
 
 
