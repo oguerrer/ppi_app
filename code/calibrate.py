@@ -160,6 +160,9 @@ plt.xlabel('time')
 plt.ylabel('indicator')
 plt.show()
 
+
+
+
 # Monte Carlo simulations
 all_outputs = []
 for sim in range(100):
@@ -183,6 +186,24 @@ plt.show()
 
 
 
+# Counterfactual with twice as much budget
+all_outputs = []
+for sim in range(100):
+    outputs = ppi.run_ppi(I0=I0, alphas=alphas, alphas_prime=alphas_prime, 
+                          betas=betas, A=A, R=R, qm=qm, rl=rl,
+                          Bs=2*Bs_future, B_dict=B_dict, Imin=Imin, Imax=Imax)
+    all_outputs.append(outputs)
+
+# unpack Monte Carlo samples
+tsI, tsC, tsF, tsP, tsS, tsG = zip(*all_outputs)
+
+# compute means
+mean_tsI = np.mean(tsI, axis=0)
+for serie in mean_tsI:
+    plt.plot(serie)
+plt.xlabel('time')
+plt.ylabel('indicator')
+plt.show()
 
 
 
