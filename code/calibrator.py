@@ -57,7 +57,8 @@ def compute_error(I0, alphas, alphas_prime, betas, A, R, qm, rl, Bs, B_dict, T,
 
 ## Calibrates PPI automatically and return a Pandas DataFrame with the parameters, errors, and goodness of fit
 def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None, B_dict=None, 
-              T=None, threshold=.8, parallel_processes=None, verbose=False):
+              T=None, threshold=.8, parallel_processes=None, 
+              verbose=False, low_precision_counts=101, increment=1000):
 
     """Function to calibrate PPI.
 
@@ -189,9 +190,20 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
             a work load of multiple Monte Carlo simulations of PPI. Parallel
             processing is optional. If not provided, the Monte Carlo simulations
             are run in a serial fashion.
-        verbose: boolean
+        verbose: boolean (optional)
             Whether to print the calibration progress. If not provided, the
             default value is False.
+        low_precision_counts: integer (optional)
+            Hyperparameter of how many low-precision iterations will be run.
+            Low precision means that only 10 Monte Carlo simulations are performed
+            in each iteration/evaluation. Once low_precision_counts has been met,
+            the number of Monte Carlo simulations increases in each iteration
+            by the amount specified in the hyperparameter: increment. If not
+            provided, the default value is 100.
+        increment: integer (optional)
+            Hyperparameter that sets the number of Montecarlo Simulations to
+            increase with each iteration, once low_precision_counts has been
+            reached. If not provided, the default value is 1000.
         
     Returns
     -------
@@ -228,7 +240,6 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
     # Initialize hyperparameters and containers
     N = len(I0)
     params = np.ones(3*N)*.5 # vector containing all the parameters that need calibration
-    increment = 1000 # number of Monte Carlo simulations needed
     sample_size = 10
     counter = 0
     GoF_alpha = np.zeros(N)
@@ -236,7 +247,7 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
     
     # Main iteration of the calibration
     # Iterates until the minimum threshold criterion has been met, and at least 100 iterations have taken place
-    while np.sum(GoF_alpha<threshold) > 0 or np.sum(GoF_beta<threshold) > 0 or counter < 101:
+    while np.sum(GoF_alpha<threshold) > 0 or np.sum(GoF_beta<threshold) > 0 or counter < low_precision_counts:
 
         counter += 1 # Makes sure at least 100 iteartions are performed
         
@@ -281,11 +292,11 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
         GoF_alpha = 1 - normed_errors_alpha
         GoF_beta = 1 - abs_normed_errrors_beta
         
-        # check 100 iterations have been reached
-        # after 100 iterations, increase the number of Monte Carlo simulations by
+        # check low_precision_counts iterations have been reached
+        # after low_precision_counts iterations, increase the number of Monte Carlo simulations by
         # 1000 in every iterations in order to achieve higher precision and 
         # minimize the error more effectively
-        if counter >= 100:
+        if counter >= low_precision_counts:
             sample_size += increment
             
         # prints the calibration iteration and the worst goodness-of-fit metric
