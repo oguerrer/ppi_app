@@ -158,7 +158,7 @@ for serie in tsI:
     plt.plot(serie)
 plt.xlabel('time')
 plt.ylabel('indicator')
-
+plt.show()
 
 # Monte Carlo simulations
 all_outputs = []
@@ -177,7 +177,7 @@ for serie in mean_tsI:
     plt.plot(serie)
 plt.xlabel('time')
 plt.ylabel('indicator')
-
+plt.show()
 
 
 
