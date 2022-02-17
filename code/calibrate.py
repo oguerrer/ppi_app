@@ -26,7 +26,7 @@ IF = series[:,-1]
 success_rates = np.sum(series[:,1::] < series[:,0:-1], axis=1)/(series.shape[1]-1)
 
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, verbose=True)
 df = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 df.to_csv(home+'/data/benchmark/calibrations/parameters_only_indicators.csv', index=False)
 
@@ -39,7 +39,7 @@ df.to_csv(home+'/data/benchmark/calibrations/parameters_only_indicators.csv', in
 budget = np.loadtxt(home+'/data/benchmark/expenditure_mean.csv', delimiter=',', dtype=float)
 Bs = float(budget)
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, verbose=True)
 df = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 df.to_csv(home+'/data/benchmark/calibrations/parameters_total_budget.csv', index=False)
 
@@ -51,7 +51,7 @@ df.to_csv(home+'/data/benchmark/calibrations/parameters_total_budget.csv', index
 budget = np.loadtxt(home+'/data/benchmark/expenditure_serie.csv', delimiter=',', dtype=float)
 Bs = budget
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, verbose=True)
 df = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 df.to_csv(home+'/data/benchmark/calibrations/parameters_budget_serie.csv', index=False)
 
@@ -66,7 +66,7 @@ B_dict = {}
 for i in range(len(I0)):
     B_dict[i] = [i]
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict, verbose=True)
 df = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 df.to_csv(home+'/data/benchmark/calibrations/parameters_budget_matrix_perfect.csv', index=False)
 
@@ -84,7 +84,7 @@ for i in range(len(I0)):
     if i%2==0 and j<len(Bs)-1:
         j+=1
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict, verbose=True)
 df = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 df.to_csv(home+'/data/benchmark/calibrations/parameters_budget_matrix_imperfect.csv', index=False)
 
@@ -119,11 +119,11 @@ for i in range(len(I0)):
         if i%2==0 and j<len(Bs)-1:
             j+=1
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict, R=R, qm=qm, rl=rl)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict, R=R, qm=qm, rl=rl, verbose=True)
 dfp1 = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 dfp1.to_csv(home+'/data/benchmark/calibrations/parameters_all_1.csv', index=False)
 
-parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict, R=R, qm=qm, rl=rl)
+parameters = calibrator.calibrate(I0, IF, success_rates, parallel_processes=20, Bs=Bs, B_dict=B_dict, R=R, qm=qm, rl=rl, verbose=True)
 dfp2 = pd.DataFrame(parameters[1::,:], columns=parameters[0])
 dfp2.to_csv(home+'/data/benchmark/calibrations/parameters_all_2.csv', index=False)
 

@@ -57,7 +57,7 @@ def compute_error(I0, alphas, alphas_prime, betas, A, R, qm, rl, Bs, B_dict, T,
 
 ## Calibrates PPI automatically and return a Pandas DataFrame with the parameters, errors, and goodness of fit
 def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None, B_dict=None, 
-              T=None, threshold=.8, parallel_processes=None, verbose=False):
+              T=None, threshold=.8, parallel_processes=None):
 
     """Function to calibrate PPI.
 
@@ -286,8 +286,7 @@ def calibrate(I0, IF, success_rates, A=None, R=None, qm=None, rl=None,  Bs=None,
             sample_size += increment
             
         # prints the calibration iteration and the worst goodness-of-fit metric
-        if verbose:
-            print( counter, np.min(GoF_alpha.tolist()+GoF_beta.tolist()) )
+        print( counter, np.min(GoF_alpha.tolist()+GoF_beta.tolist()) )
     
     # save the last parameter vector and de associated errors and goodness-of-fit metrics
     output = np.array([['alpha', 'alpha_prime', 'beta', 'T', 'error_alpha', 
