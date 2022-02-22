@@ -271,7 +271,7 @@ def run_ppi(I0, alphas, alphas_prime, betas, A=None, R=None, bs=None, qm=None, r
         Bs = np.array([Bs])
         B_dict = dict([(i,[0]) for i in range(N) if R[i]])
         T = Bs.shape[1]
-    elif type(Bs) is float or type(Bs) is np.float64:
+    elif type(Bs) is float or type(Bs) is int or type(Bs) is np.float64:
         Bs = np.array([np.ones(T)*Bs])
         B_dict = dict([(i,[0]) for i in range(N) if R[i]])
     else:
