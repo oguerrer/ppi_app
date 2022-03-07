@@ -12,15 +12,18 @@ import ppi
 
 
 ## LOAD ALL THE BENCHMARKING DATA
-I0 = np.loadtxt(home+'/data/benchmark/I0.csv', delimiter=',')
-IF = np.loadtxt(home+'/data/benchmark/IF.csv', delimiter=',')
-success_rates = np.loadtxt(home+'/data/benchmark/success_rates.csv', delimiter=',')
-A = np.loadtxt(home+'/data/benchmark/A.csv', delimiter=',')
-R = np.loadtxt(home+'/data/benchmark/R.csv', delimiter=',')
-qm = np.loadtxt(home+'/data/benchmark/qm.csv', delimiter=',')
-rl = np.loadtxt(home+'/data/benchmark/rl.csv', delimiter=',')
-Bs = np.loadtxt(home+'/data/benchmark/Bs.csv', delimiter=',')
-B_dict = dict([(int(key), [int(val)]) for key, val in np.loadtxt(home+'/data/benchmark/B_dict.csv', delimiter=',')])
+df_param = pd.read_csv(home+'/data/benchmark/integrated_in_template/indicators_no_parameters.csv')
+I0 = df_param['I0'].values
+IF = df_param['IF'].values
+success_rates = df_param['success_rates'].values
+R = df_param['R'].values
+qm = df_param['qm'].values
+rl = df_param['rl'].values
+Bs = np.loadtxt(home+'/data/benchmark/integrated_in_template/Bs.csv', delimiter=',')
+B_dict = dict([(int(key), [int(val)]) for key, val in np.loadtxt(home+'/data/benchmark/integrated_in_template/B_dict.csv', delimiter=',')])
+A = np.loadtxt(home+'/data/benchmark/integrated_in_template/A.csv', delimiter=',')
+
+
 
 
 ## CALIBRATION ONLY WITH INDICATOR TIME SERIES

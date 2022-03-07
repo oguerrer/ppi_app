@@ -106,22 +106,14 @@ def run_ppi(I0, alphas, alphas_prime, betas, A=None, R=None, bs=None, qm=None, r
             for that indicator and it will decrease indefinitely. If not provided,
             no indicator will have lower bound.
         Bs: numpy ndarray or floating point (optional)
-            Disbursement schedule across expenditure programs. There are three 
+            Disbursement table across expenditure programs. There are two 
             options to specify Bs:
-                - A matrix: this is a disaggregated specification of the 
-                disbursement schedule across expenditure programs and time. 
-                The rows correspond to expenditure programs and the columns
-                to simulation periods. Since there may be more or less expenditure 
-                programs than indicators, the number of rows in Bs should be
-                consistent with the information contained in parameter B_dict,
-                otherwise PPI will throw and exception. Since the number of 
-                columns denotes the number of simulation periods, parameter T
-                will be overriden.
-                - A vector: this would be equivalent to a matrix with a single
-                row, i.e. to having a single expenditure program. This representation
-                is useful when there is no information available across programs,
-                but there is across time. Like in the matrix representation, 
-                this input should be consistent with B_dict.
+                - A vector: this is a disaggregated specification of the 
+                disbursement table across expenditure programs. 
+                The rows correspond to expenditure programs. Since there may 
+                be more or less expenditure programs than indicators, the number 
+                of rows in Bs should be consistent with the information contained 
+                in parameter B_dict, otherwise PPI will throw and exception.
                 - A floating point: this assumes there is no information about
                 expenditure across programs nor time. In this case, PPI uses
                 the amount provided for every simulated period, as in the case
@@ -238,15 +230,17 @@ def run_ppi(I0, alphas, alphas_prime, betas, A=None, R=None, bs=None, qm=None, r
     if qm is None:
         qm = np.ones(n)*.5
     elif type(qm) is np.ndarray:
-        assert np.sum(np.isnan(qm)) == 0, 'qm should not contain missing values'
-        assert len(qm) == n, 'qm should have the same size as the number of ones in R'
+        assert len(qm) == N, 'qm should have the same size as I0'
+        qm = qm[R]
+        qm[np.isnan(qm)] = 0.5
         
     # Quality of the rule of law
     if rl is None:
         rl = np.ones(n)*.5
     elif type(rl) is np.ndarray:
-        assert np.sum(np.isnan(rl)) == 0, 'rl should not contain missing values'
-        assert len(rl) == n, 'rl should have the same size as the number of ones in R'
+        assert len(rl) == N, 'rl should have the same size as I0'
+        rl = rl[R]
+        rl[np.isnan(rl)] = 0.5
         
     # Theoretical upper bounds
     if Imax is not None:
@@ -262,20 +256,14 @@ def run_ppi(I0, alphas, alphas_prime, betas, A=None, R=None, bs=None, qm=None, r
 
 
     # Payment schedule
-    if T is None:
+    if T is None or T < 50:
         T = 50
     if Bs is None:
         Bs = np.array([np.ones(T)*100])
         B_dict = dict([(i,[0]) for i in range(N) if R[i]])
-    elif type(Bs) is np.ndarray and len(Bs.shape) == 1:
-        Bs = np.array([Bs])
-        B_dict = dict([(i,[0]) for i in range(N) if R[i]])
-        T = Bs.shape[1]
-    elif type(Bs) is float or type(Bs) is int or type(Bs) is np.float64 or type(Bs) is np.int64:
-        Bs = np.array([np.ones(T)*Bs])
-        B_dict = dict([(i,[0]) for i in range(N) if R[i]])
     else:
-        T = Bs.shape[1]
+        Bs = np.tile(Bs, (T,1)).T
+
     
     assert np.sum(np.isnan(Bs)) == 0, 'Bs should not contain missing values'
     
