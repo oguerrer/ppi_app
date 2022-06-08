@@ -170,11 +170,16 @@ plt.show()
 
 
 
+## Compare outputs vs app
+df_app = pd.read_excel(home+'/testing/from_app.xlsx', header=None)
 
 
 
 
 
+plt.plot(mean_series[:-1,-1]-mean_series[:-1,0], df_app.values[:,-1]-df_app.values[:,0], '.')
+plt.xlabel('cambio total Python')
+plt.ylabel('cambio total Javascript')
 
 
 
