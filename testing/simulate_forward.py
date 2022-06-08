@@ -55,7 +55,7 @@ mean_series = np.mean(tsI, axis=0)
 dff = pd.DataFrame([[df_param['indicator_label'].values[i]]+c for i, c in enumerate(mean_series.tolist())], 
                    columns=['indicator_label']+list(range(1, mean_series.shape[1]+1)))
 
-# dff.to_csv(home+'/data/benchmark/integrated_in_template/sim_outputs.csv', index=False)
+ dff.to_csv(home+'/testing/integrated_in_template/sim_outputs.csv', index=False)
 
 
 
