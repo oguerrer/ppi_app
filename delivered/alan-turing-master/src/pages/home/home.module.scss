@@ -1,0 +1,68 @@
+@import '../../assets/stylesheets/colors.scss'; 
+
+.container {
+  display: flex;
+  margin-top: 70px;
+  flex-direction: column;
+  align-items: center;
+}
+.leftDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 146px;
+}
+.imgDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  width: 50%;
+  align-items: center;
+  margin-top: -25px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.title {
+  margin-bottom: 22px;
+}
+.textDiv {
+  width: 50%;
+  margin-right: 53px;
+}
+.text {
+  color: $black;
+  max-width: 625px;
+}
+.graphic {
+  width: 420px;
+  height: 370px;
+}
+.width100 {
+  display: flex;
+  max-width: 720px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 117px;
+}
+.startButton {
+  border: none;
+  background: #1D1616;
+  border-radius: 8px;
+  color: white;
+  height: 52px;
+  width: 102px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.icon {
+  transform: rotate(90deg);
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  margin-bottom: -1px;
+}

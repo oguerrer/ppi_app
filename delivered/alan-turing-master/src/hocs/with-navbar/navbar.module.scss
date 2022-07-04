@@ -1,0 +1,35 @@
+@import '../../assets/stylesheets/colors.scss';
+
+.header {
+  background-color: white;
+  height: 80px;
+  box-shadow: 0px 4px 8px rgba(234, 239, 244, 0.64);
+  justify-content: center;
+}
+.container {
+  display: flex;
+  width: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $primary10;
+}
+.linksBox {
+  display: flex;
+}
+.navbarLink {
+  color: $primary40;
+  text-transform: none;
+}
+.logo {
+  cursor: pointer;
+}
+@media print
+{    
+    .noPrint, .noPrint *
+    {
+        display: none !important;
+    }
+}

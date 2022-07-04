@@ -1,0 +1,24 @@
+@import '../../../../assets/stylesheets/colors.scss';
+
+.title {
+  color: black;
+  margin-top: 66px;
+  margin-bottom: 7px;
+}
+.subtitle {
+  margin-top: 7px;
+}
+.closeIcon {
+  margin-top: 2px;
+  margin-right: 12px;
+  color: $error;
+}
+.checkIcon {
+  margin-top: 2px;
+  margin-right: 12px;
+  color: $check;
+}
+.verificationDiv {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,21 @@
+@import './assets/stylesheets/variables.scss';
+
+@font-face {
+  font-family: 'Raleway';
+  src: local('Raleway'), local('Raleway'),
+       url('./assets/fonts/Raleway-Medium.ttf') format('opentype'),
+}
+
+* {
+  margin: 0;
+  font-family: $primary-font, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

@@ -1,0 +1,80 @@
+@import './colors.scss';
+@import './variables.scss';
+
+.basicFontSettings {
+  font-family: $primary-font;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  color: black;
+}
+.link {
+  @extend .basicFontSettings;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+}
+.title {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.headingSmall {
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  font-size: 22px;
+}
+.headingSmallBold {
+  @extend .headingSmall;
+  font-weight: 700;
+}
+.headingLarge {
+  @extend .title;
+  font-size: 80px;
+  line-height: 94px;
+}
+.headingMedium {
+  @extend .title;
+  font-size: 40px;
+  line-height: 47px;
+}
+.bodyMedium {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+.bodyMediumBold {
+  @extend .bodyMedium;
+  font-weight: 700;
+}
+.bodyMediumSemiBold {
+  @extend .bodyMedium;
+  font-weight: 600;
+}
+.subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+}
+.breadcrumb {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.bodyReg {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+}
+.labelReg {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 30px;
+}
+.sliderNumbers {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 30px;
+}

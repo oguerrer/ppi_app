@@ -1,0 +1,16 @@
+Documento de especificacón técnica sobre código React
+
+Para ocular una gráfica ir a:
+	- /src/pages/simulation/steps/simulate.jsx
+	Si se desea ocular la gráfica linear entonces comentar o eliminar el div con id: lineChartDiv
+	Si se deasea ocultar la gráfica de torta entonces comentar o eliminar el div "chartContainer
+	Para eliminar la última gráfica hay que comentar o elimninar el div cuyo id es chartDIv.
+
+Para cambiar alguna de las variables para el calibrate:
+	- /src/pages/simulation/steps/calibrate.jsx
+	Aquí se podrán cambiar algunas de las variables hardcodeadas para el funcionamiento de la app como por ejemplo sample_size o T (cantidad de períodos)
+
+A su vez el código de pyton se separó en algunos archivos:
+ - /src/pages/helpers/logical-functions/runppi.jsx contiene la función run
+ - /src/pages/helpers/logical-functions/calibrate.jsx contiene la función calibrate
+ - /src/pages/helpers/logical-functions/compute-error.jsx contiene la función compute-error

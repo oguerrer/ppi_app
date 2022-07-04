@@ -1,0 +1,22 @@
+@import '../../assets/stylesheets/colors.scss';
+
+.selected {
+  color: $primary50;
+  font-weight: 700;
+  text-decoration: none;
+}
+.notSelected {
+  color: $primary30;
+  font-weight: 700;
+  text-decoration: none;
+}
+.borderBottom {
+  border-bottom: solid 2px;
+  margin-top: 7px;
+}
+.noBorderBottom {
+  margin-top: 7px;
+}
+.navigateNextIcon {
+  margin-bottom: 7px;
+}

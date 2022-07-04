@@ -1,0 +1,64 @@
+@import '../../assets/stylesheets/colors.scss'; 
+
+.container {
+  display: flex;
+  margin-top: 70px;
+  flex-direction: row;
+}
+.leftDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 146px;
+  width: 380px;
+}
+.rightDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 87px;
+  width: 100%;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 117px;
+}
+.nextButton {
+  border: none;
+  background: #1D1616;
+  border-radius: 8px;
+  color: white;
+  height: 52px;
+  width: 102px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-bottom: -5px;
+}
+.primaryTitle {
+  border-bottom: solid 1px;
+  padding-bottom: 18px;
+}
+.secondaryTitle {
+  margin-top: 40px;
+}
+.paragraphDiv {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  font-size: 22px;
+}
+.errorIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 9px;
+  margin-top: 3px;
+}
+.paragraph {
+
+}

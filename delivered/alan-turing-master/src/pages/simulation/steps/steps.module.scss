@@ -1,0 +1,314 @@
+@import '../../../assets/stylesheets/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.subContainer {
+  display: flex;
+  flex-direction: row;
+}
+.leftDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 146px;
+  width: 380px;
+}
+.rightDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 87px;
+  // width: 100%;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: -15px;
+  margin-right: 37px;
+  margin-bottom: 60px;
+}
+.nextButton {
+  border: none;
+  background: #1D1616;
+  border-radius: 8px;
+  color: white;
+  height: 52px;
+  width: 102px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:disabled {
+    background-color: $light50;
+    color: $primary30;
+    cursor: default;
+  }
+}
+.icon {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-bottom: -5px;
+}
+.primaryTitle {
+  border-bottom: solid 1px;
+  padding-bottom: 18px;
+}
+.secondaryTitle {
+  margin-top: 40px;
+}
+.paragraphDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  font-size: 22px;
+}
+.informationDiv {
+  display: flex;
+  flex-direction: row;
+}
+.errorIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 9px;
+  margin-top: 3px;
+}
+.rightSubDiv {
+  display: flex;
+  margin-top: 53px;
+}
+.tableTitle {
+  margin-bottom: 19px;
+}
+.leftSubDiv {
+  min-width: 332px;
+}
+.leftParagraph {
+  margin-left: 32px;
+  max-width: 332px;
+  color: $primary40;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.downloadLink {
+  text-decoration: none;
+  color: black;
+}
+.whiteButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #1D1616;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.downloadTemplateButton {
+  @extend .whiteButton;
+  width: 185px;
+  height: 52px;
+  margin-top: 22px;
+}
+.viewExampleButton {
+  @extend .whiteButton;
+  width: 125px;
+  height: 34px;
+  display: flex;
+  align-self: end;
+  margin-bottom: 130px;
+}
+.downloadNetworkButton {
+  margin-bottom: 155px;
+  margin-left: 60px;
+}
+.skipButton {
+  @extend .whiteButton;
+  font-weight: 500;
+  width: 135px;
+  height: 52px;
+  margin-right: 20px;
+}
+.greyText {
+  color: $primary30;
+}
+.mediaUploader {
+  width: 450px;
+  height: 84px;
+}
+.darkDiv {
+  background: $primary40;
+  border-radius: 10px;
+  width: 378px;
+  height: 108px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+.lightText {
+  margin-left: 16px;
+  margin-right: 16px;
+  color: $white;
+}
+.indicatorsTable {
+  width: 830px;
+}
+.separator {
+  height: 1px;
+  background-color: $primary30;
+  margin-bottom: 22px;
+}
+.mt30 {
+  margin-top: 30px;
+}
+.mr70 {
+  margin-right: 70px;
+}
+.mb52 {
+  margin-bottom: 52px;
+}
+.mt40 {
+  margin-top: 40px;
+}
+.mt155 {
+  margin-top: -155px;
+}
+.mt90 {
+  margin-top: 90px;
+}
+.ml20 {
+  margin-left: 20px;
+}
+.inputLabel {
+  margin-top: -22px;
+  color: $primary40;
+}
+.input {
+  input {
+    width: 280px !important;
+    height: 44px !important;
+    border: 1px solid #7F7F7F !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+  }
+}
+.select {
+  width: 280px !important;
+  height: 44px !important;
+  border: 1px solid #7F7F7F !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+}
+.collapsedContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 645px;
+}
+.readMore {
+  background-color: transparent;
+  border: none;
+  color: black;
+  text-transform: none;
+  padding: 0;
+  display: flex;
+  justify-content: start;
+  width: 100px;
+  &:hover {
+    background-color: transparent;
+  }
+}
+.outerFormControl {
+  max-width: 665px;
+}
+.end {
+  display: flex;
+  align-self: end;
+  height: 52px;
+}
+.networkDiv {
+  @extend .outerFormControl;
+  max-width: 557px;
+}
+.firstNumber{
+  margin-right: 277px;
+}
+.startCalibrationButton {
+  @extend .nextButton;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 156px;
+  height: 48px;
+  margin-left: 111px;
+  margin-top: -24px;
+  text-decoration: none;
+}
+.sliderInvisibleDiv0 {
+  width: 14px;
+}
+.sliderInvisibleDiv1 {
+  width: 10px;
+}
+.sliderInvisibleDiv3 {
+  width: 65px;
+}
+.hide {
+  display: none;
+}
+.loading {
+  margin-left: 111px;
+  margin-top: -24px;
+}
+.startSimulationButton {
+  @extend .startCalibrationButton;
+  margin-left: 0px;
+}
+.infoIcon {
+  margin-left: 6px;
+  font-size: 24px;
+  margin-bottom: -7px;
+}
+.chartsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.variationTitle {
+  font-weight: 600;
+  margin-top: 50px;
+}
+.calibrating {
+  margin-left: 60px;
+  margin-top: -32px;
+  font-weight: 500;
+}
+.simulating {
+  @extend .calibrating;
+  margin-left: 180px;
+  margin-top: -40px;
+}
+.downloadExcel {
+  margin-left: 20px;
+}
+.downloadDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+@media print
+{    
+    .noPrint, .noPrint *
+    {
+        display: none !important;
+    }
+}
+.printButton {
+  width: 52px;
+}

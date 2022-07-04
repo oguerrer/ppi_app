@@ -1,0 +1,70 @@
+@import '../../assets/stylesheets/colors.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.subContainer {
+  display: flex;
+  flex-direction: row;
+}
+.leftDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 146px;
+  width: 380px;
+} 
+.rightDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 87px;
+  margin-top: 178px;
+  // width: 100%;
+}
+.primaryTitle {
+  border-bottom: solid 1px;
+  padding-bottom: 18px;
+}
+.secondaryTitle {
+  margin-top: 40px;
+}
+.paragraphDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  font-size: 22px;
+}
+.informationDiv {
+  display: flex;
+  flex-direction: row;
+}
+.errorIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 9px;
+  margin-top: 3px;
+}
+.rightSubDiv {
+  display: flex;
+  margin-top: 53px;
+}
+.tableTitle {
+  margin-bottom: 19px;
+}
+.leftSubDiv {
+  min-width: 332px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.greyText {
+  color: $primary30;
+}
+.mt40 {
+  margin-top: 40px;
+}

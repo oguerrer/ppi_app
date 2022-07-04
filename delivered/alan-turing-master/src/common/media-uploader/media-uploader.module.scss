@@ -1,0 +1,135 @@
+@import '../../assets/stylesheets/colors.scss';
+
+.uploaderContainer {
+  background-color: $light40;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.1s ease;
+  width: 450px;
+  height: 84px;
+  margin-top: 64px;
+  &.fileHover {
+    background-color: $hover;
+  }
+  border-radius: 10px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.browseButton {
+  visibility: hidden;
+  margin-top: 21px;
+  // NOTE: This is to make it not occupy space
+
+  &::before {
+    visibility: visible;
+    content: 'Browse file';
+    display: inline-block;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 117px;
+    height: 52px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  &:hover::before {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), $primary40;
+    color: white;
+    text-decoration: none;
+  }
+
+  &:focus::before {
+    border: 2px solid $darkest-grey;
+    // NOTE: this is needed to avoid having the button change size
+    // due to the added border.
+    padding: 4px 10px;
+  }
+
+  &:disabled::before {
+    background-color: white;
+    border: 1px solid $disabled-grey;
+    color: $light-grey;
+    cursor: unset;
+  }
+}
+
+.fileContainer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.mediaCard {
+  margin-bottom: 16px;
+}
+
+.invalidFormat {
+  margin-top: 63px;
+  margin-left: 70px;
+  color: $error-red;
+  position: absolute;
+  display: flex;
+  align-items: center;
+
+  & > svg {
+    display: inline-block;
+    margin-right: 8px;
+    width: 14px;
+  }
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.downloadIcon {
+  svg {
+    width: 21px;
+    height: 21px;
+  }
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 11px;
+  margin-left: 21px;
+  margin-right: 17px;
+}
+.text {
+  justify-self: center;
+  align-self: center;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  width: 246px;
+}
+.subText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 28px;
+  color: $primary30;
+}
+.replaceText {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #8A8AA8;
+  margin-top: 10px;
+}

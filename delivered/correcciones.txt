@@ -1,0 +1,13 @@
+- Resolution?
+- Alineamiento dle logo del Turing
+- Logo del Turing pixeleado
+- Top panel ancho no cuadra
+- Link a la página del Turing
+- Problema con la validación de un archivo de indicadores
+- Los títulos de las visualizaciones 2 y 3 están al revés
+- El primer gráfico debe ser de avance neto: valor del indicador entre su valor inicial, multiplicado por 100
+- Las flechas del diagrama de barras  no son consistentes con las del gráfico original
+- Hay que quitar la columna de las metas del template
+- output labels
+- Faltan indicadores en el gráfico de barras
+- Quitar variation de tooltips de dona
